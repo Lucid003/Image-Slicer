@@ -14,9 +14,9 @@ folder = 'toslice/'
 toslice = os.listdir('toslice/')
 for entry in toslice:
     im = Image.open(os.path.join(folder, entry))
-    rows = im.size[0] / tilesize
+    rows = im.size[1] / tilesize
     rows = math.ceil(rows)
-    cols = im.size[1] / tilesize
+    cols = im.size[0] / tilesize
     cols = math.ceil(cols)
     dirname = entry.rstrip('.png')
     os.mkdir(os.path.join(folder, dirname))
