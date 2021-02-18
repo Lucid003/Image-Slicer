@@ -14,15 +14,19 @@ while True: # basic input validation
 
 choices = ('Image', 'Folder', "Cancel")
 decision = buttonbox("Would you like to split an image or a folder of images?", "Image Splitter", choices)
+
 if decision == "Folder":
     folder = diropenbox("", "Select a folder with images to slice...")
     # folder = 'toslice/' # change this to your desired location
     toslice = os.listdir(folder) # gets all objects in your folder, even folders so make sure it's just images
+    
 elif decision == "Image":
     toslice = []
     toslice.append(fileopenbox("Select a file to split...", "Image Splitter"))
+    
 elif decision == "Cancel":
     exit()
+    
 for entry in toslice:
     dirname = entry.rstrip('.png') # folder name for output
     dirname = dirname.rstrip('.jpg') # folder name for output
